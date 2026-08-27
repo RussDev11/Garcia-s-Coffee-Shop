@@ -1,3 +1,12 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  base: '/Garcia-s-Coffee/',
+})
+
+
 const STORAGE_KEY = "garcias_menu_items_v1";
 const ORDERS_KEY = "garcias_orders_v1";
 const QUEUE_COUNTER_KEY = "garcias_queue_counter_v1";
