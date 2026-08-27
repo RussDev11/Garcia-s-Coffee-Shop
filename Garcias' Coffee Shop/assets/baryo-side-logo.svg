@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="title">
+  <title id="title">Baryo Side logo</title>
+  <rect width="720" height="360" fill="#ffffff"/>
+  <g fill="#b91318" font-family="Arial Black, Impact, sans-serif" font-weight="900" text-anchor="middle">
+    <text x="360" y="145" font-size="104" transform="skewX(-3)">BARYO</text>
+    <text x="360" y="270" font-size="140" transform="skewX(2)">SIDE</text>
+  </g>
+</svg>

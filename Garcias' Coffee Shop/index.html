@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Garcias' Coffee Shop | QR Digital Ordering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <img class="brand-logo" src="assets/baryo-side-logo.svg" alt="Baryo Side logo" />
+        <div>
+          <h1>Garcias' Coffee Shop</h1>  
+          <p>Masarap shaa aray mo!</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="welcomeSection" class="panel active">
+        <div class="welcome-grid">
+          <div class="welcome-card">
+            <h2>Welcome to Garcias' Coffee Shop</h2>
+            <p>Scan, order, and enjoy a smooth café experience with minimal waiting and effortless checkout.</p>
+            <div class="welcome-actions">
+              <button id="startOrderingBtn" class="primary-btn">Start Ordering</button>
+              <button id="showQrBtn" class="secondary-btn">Scan QR View</button>
+            </div>
+          </div>
+          <div class="qr-mock-card">
+            <div class="qr-box" aria-label="QR code">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https://garcias-coffee.shop/order" alt="Garcias Coffee Shop QR code">
+            </div>
+            <p>Scan to open digital menu instantly.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="scanSection" class="panel">
+        <div class="scan-card">
+          <h2>Scan QR Code</h2>
+          <p>Point your phone camera to the table QR and open the menu page.</p>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=https://garcias-coffee.shop/order" alt="Table QR code">
+          <button id="goToMenuFromScanBtn" class="primary-btn">Open Menu</button>
+        </div>
+      </section>
+
+      <section id="menuSection" class="panel">
+        <div class="menu-toolbar">
+          <div class="search-wrap">
+            <input type="search" id="searchInput" placeholder="Search menu items..." />
+          </div>
+          <div id="categoryTabs" class="category-tabs"></div>
+        </div>
+
+        <div id="limitedHighlight" class="limited-highlight"></div>
+
+        <div class="menu-order-actions">
+          <button id="viewOrderBtn" class="primary-btn" type="button">
+            View Order <span id="viewOrderCount">0 Items</span>
+          </button>
+        </div>
+
+        <section class="menu-grid-wrap">
+          <div id="menuGrid" class="menu-grid"></div>
+        </section>
+      </section>
+
+      <section id="orderSection" class="panel">
+        <aside class="cart-sidebar order-page-card">
+          <button id="backToMenuBtn" class="secondary-btn back-btn" type="button">Back to Menu</button>
+          <div class="cart-header">
+            <h3>Your Order</h3>
+            <span id="cartItemCount" class="pill">0 Items</span>
+          </div>
+          <div class="table-field">
+            <label for="tableNumberInput">Customer Name</label>
+            <input id="tableNumberInput" type="text" placeholder="e.g. Juan Dela Cruz" />
+          </div>
+          <div id="cartItems" class="cart-items"></div>
+          <div class="cart-footer">
+            <div class="totals">
+              <span>Total</span>
+              <strong id="cartTotal">PHP 0.00</strong>
+            </div>
+            <button id="checkoutBtn" class="primary-btn">Checkout</button>
+          </div>
+        </aside>
+      </section>
+
+      <section id="confirmSection" class="panel">
+        <div class="confirm-card">
+          <h2>Order Confirmed</h2>
+          <p id="orderConfirmationText"></p>
+          <button id="newOrderBtn" class="primary-btn">Create New Order</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="orderSummaryModal" class="modal">
+    <div class="modal-card">
+      <button id="closeModalBtn" class="close-btn" aria-label="Close summary">&times;</button>
+      <h3>Order Summary</h3>
+      <div id="summaryItems"></div>
+      <div class="summary-footer">
+        <p id="summaryMeta"></p>
+        <strong id="summaryTotal"></strong>
+      </div>
+      <button id="confirmOrderBtn" class="primary-btn">Confirm Order</button>
+    </div>
+  </div>
+
+  <div id="queueModal" class="modal">
+    <div class="modal-card queue-card">
+      <button id="closeQueueModalBtn" class="close-btn" aria-label="Close queue popup">&times;</button>
+      <h3>Your Queue Number</h3>
+      <p id="queueNumberText"></p>
+      <p class="queue-note">Please keep this number and wait for your order to be accepted by our barista.</p>
+      <button id="queueOkayBtn" class="primary-btn">Okay</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Garcias' Coffee Shop | Admin Panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="admin-page">
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <img class="brand-logo" src="../assets/baryo-side-logo.svg" alt="Baryo Side logo" />
+        <div>
+          <h1>Admin Panel</h1>
+          <p>Garcias' Coffee Shop menu and order management</p>
+        </div>
+      </div>
+      <a class="ghost-btn admin-link" href="../index.html">Customer Page</a>
+    </header>
+
+    <main>
+      <section class="panel active">
+        <div class="admin-card">
+          <h2>Menu Control</h2>
+          <p>Add, edit, or remove menu items in real time.</p>
+          <form id="menuForm" class="menu-form">
+            <input type="hidden" id="editIdInput" />
+            <div class="form-grid">
+              <input id="nameInput" placeholder="Item name" required />
+              <input id="priceInput" type="number" min="1" step="0.01" placeholder="Price (PHP)" required />
+              <input id="categoryInput" placeholder="Category (e.g. DRINKS)" required />
+              <input type="hidden" id="imageDataInput" />
+              <label class="upload-field" for="imageInput">
+                <span>Upload Image</span>
+                <input id="imageInput" type="file" accept="image/*" />
+              </label>
+              <input id="descInput" placeholder="Description" required />
+              <div class="menu-flags">
+                <label class="switch">
+                  <input id="bestSellerInput" type="checkbox" />
+                  <span>Best Seller</span>
+                </label>
+                <label class="switch">
+                  <input id="limitedInput" type="checkbox" />
+                  <span>Limited Edition</span>
+                </label>
+              </div>
+              <div class="image-preview-wrap">
+                <img id="imagePreview" class="image-preview" alt="Selected menu item preview" />
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="primary-btn">Save Item</button>
+              <button type="button" id="resetFormBtn" class="secondary-btn">Reset</button>
+            </div>
+          </form>
+
+          <h3>Incoming Orders</h3>
+          <div id="adminOrdersList" class="admin-orders-list"></div>
+
+          <h3>Menu Items</h3>
+          <div id="adminList" class="admin-list"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="admin.js"></script>
+</body>
+</html>
